@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰 기초</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+      {{ message }}<br>
+      <button @click="changeMessage">Click</button><br>
+      {{ updated }}
+    </div>
+    <script>
+        new Vue({
+          el: '#app',  
+          data: {
+            message: "헬로우",
+            updated: "아니요"
+          },
+          methods: {
+            changeMessage() {
+              this.message = "안녕안녕";
+            }
+          },
+          computed: {
+            reversedMessage() {
+              return this.message.split('').reverse().join('');
+            }
+          },
+          watch: { //감시하고싶은 데이터
+            message(newVal, oldVal) {
+              console.log(newVal, oldVal); // 안녕안녕, 헬로우
+              this.updated = "네"
+            }
+          }
+        })
+    </script>
+</body>
+</html>
