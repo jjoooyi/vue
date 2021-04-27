@@ -1,0 +1,60 @@
+<!-- 컴포넌트 기초: https://kr.vuejs.org/v2/guide/components.html
+재사용 가능한 코드를 캡슐화, 중복을 줄일 수 있음
+
+1. 전역 컴포넌트
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>뷰 기초</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app1">
+    <update-button></update-button>
+  </div>
+  <hr>
+  <div id="app2">
+    <update-button></update-button>
+  </div>
+
+  <script>
+    // 전역 컴포넌트
+    Vue.component('hello-world', {
+      template: '<div>Hello World</div>'
+    });
+
+    Vue.component('update-button', {
+      template:`
+      <div>
+        {{ name }}<br>
+        <hello-world></hello-world>
+        <button @click="changeText">Click</button>
+      </div>
+      `,
+      data() {
+        return {
+          name: 'component Test'
+        }
+      },
+      methods: {
+        changeText() {
+          this.name = 'component Updated'
+        }
+      }
+    });
+
+    const app1 = new Vue({
+      el: '#app1'
+    })
+    const app2 = new Vue({
+      el: '#app2'
+    })
+
+  </script>
+</body>
+</html>

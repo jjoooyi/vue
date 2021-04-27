@@ -1,0 +1,38 @@
+<!-- v-for 리스트 렌더링 https://kr.vuejs.org/v2/guide/list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰 기초</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+      <!-- key는 고유한 값으로 입력! 고유하지 않을경우 '-'등을 이용하여 표현 -->
+      <div v-for="(person, index) in people" :key="person.id + '-' + person.name"> 
+      <!-- <div v-for="(person, index) in people" :key="index">  -->
+        {{ person.name }}, {{ person.age }}, {{ index }}
+      </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+              people: [
+                { id: 1, name: 'a', age: 20},
+                { id: 2, name: 'b', age: 21},
+                { id: 3, name: 'c', age: 22},
+                { id: 4, name: 'd', age: 23},
+                { id: 5, name: 'e', age: 24},
+                { id: 6, name: 'f', age: 25},
+              ]
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+</html>
