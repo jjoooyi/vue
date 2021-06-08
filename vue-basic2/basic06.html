@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue basic</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1 v-show="show">안녕하세요!</h1>
+    <hr>
+    <div v-if="number === 1">1st</div>
+    <div v-else-if="number ===2">2nd</div>
+    <div v-else>3rd</div>
+    <button @click="increaseNumber">increase</button> {{ number }}
+    <hr>
+    <template v-if="show">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </template>
+    <div v-else>No</div>
+    <button @click="toggleShow">toggle</button>
+  </>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        show: false,
+        number: 1
+      },
+      methods: {
+        toggleShow() {
+          this.show = !this.show
+        },
+        increaseNumber() {
+          this.number++;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

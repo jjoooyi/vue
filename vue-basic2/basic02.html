@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue basic</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <form action="" @submit.prevent="submit">
+      <input type="text">
+      <button>submit</button>
+    </form>
+
+    {{ year }}<br>
+    <button @click="plus">plus</button>
+    <button @click="minus">minus</button><br>
+    <button @click="clickTest">Click Me</button>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        year: 2021
+      },
+      methods: {
+        submit() {
+          alert('submitted')
+        },
+        clickTest() {
+          alert('click test');
+        },
+        plus() {
+          this.year++;
+        },
+        minus() {
+          this.year--;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

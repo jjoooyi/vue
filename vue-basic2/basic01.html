@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue basic</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    {{ person.name }} {{ person.age }}
+    {{ nextYear('안녕~') }}
+    <br>
+    <input :type="type" :value="inputData">
+    <br>
+    <a :href="link">naver</a>
+    <br>
+    <a :href="getLink('kossiecoder')">youtube</a>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        person: {
+          name: 'joy',
+          age: 20
+        },
+        inputData: 'hohoho',
+        type: 'text',
+        link: 'https://naver.com',
+        youtube: 'https://youtube.com/'
+      },
+      methods: {
+        nextYear(greeting) {
+          return greeting + '! ' + this.person.name + '는 내년에 ' + (this.person.age + 1) + '살 입니다.';
+        },
+        otherMethod() {
+          this.nextYear();
+        },
+        getLink(channel) {
+          return this.youtube + channel;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

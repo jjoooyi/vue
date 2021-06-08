@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue basic</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    {{ message }}
+    <button @click="changeMessage">click</button><br>
+    {{ updated }}
+    
+    <hr>
+    <button @click="changeMessage">click</button>
+    {{ reversedMessage }}
+    {{ reversedMessage }}
+    {{ reversedMessage }}
+
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        message: '헬로우',
+        updated: '아니요'
+      },
+      methods: {
+        reversedMethod() {
+          return this.message.split('').reverse().join('')
+        },
+        changeMessage() {
+          this.message = 'joy';
+        }
+      },
+      computed: {
+        reversedMessage() {
+          return this.message.split('').reverse().join('')
+        }
+      },
+      watch: {
+        message(newVal, oldVal) {
+          console.log(newVal, oldVal)
+          this.updated = '네' + oldVal
+        }
+      }
+    })
+  </script>
+</body>
+</html>

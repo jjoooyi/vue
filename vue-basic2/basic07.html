@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue basic</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div v-for="(p, i) in people" key="p.id">
+        {{ i+1 }} {{ p.name }} {{ p.age }}
+    </div>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        people: [
+          {id:1, name: 'a', age: 20},
+          {id:2, name: 'b', age: 21},
+          {id:3, name: 'c', age: 22},
+          {id:4, name: 'd', age: 23},
+          {id:5, name: 'e', age: 24},
+          {id:6, name: 'f', age: 25},
+          {id:7, name: 'g', age: 26},
+        ]
+      },
+      methods: {
+        
+      }
+    })
+  </script>
+</body>
+</html>
