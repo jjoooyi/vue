@@ -6,7 +6,7 @@
       <i class="fas fa-plus addBtn"></i>
     </span>
 
-    <Modal v-if="showModal" @close="showModal = false">
+    <Modal v-if="showModal" @close="showModal=false">
       <h3 slot="header">
         경고!
         <i class="fas fa-times claseModalBtn" @click="showModal=false"></i>
